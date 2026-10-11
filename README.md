@@ -171,6 +171,27 @@ is one word; multi-word phrases would never match.
 Tested end to end against a real `AnalyzerEngine` and `AnonymizerEngine`, not
 just in isolation.
 
+## The suite
+
+`presidio-mena` is one of six packages Novagios publishes for ITSM and Arabic
+NLP. Each one stands on its own; together they run from pulling tickets out of
+GLPI to a trained classifier, without a single real ticket ever being used.
+
+| Package | What it does |
+|---|---|
+| [`glpi-rest`](https://github.com/novagiosAI/glpi-rest) | Typed client for the GLPI REST API, with automatic recovery of an expired session |
+| [`glpi-anonymizer`](https://github.com/novagiosAI/glpi-anonymizer) | Strips personal data from ticket exports; validates Moroccan check digits before masking |
+| **`presidio-mena`** | The same Moroccan identifiers, as Microsoft Presidio recognizers — **you are here** |
+| [`glpi-testkit`](https://github.com/novagiosAI/glpi-testkit) | Synthetic ITIL tickets in French, Arabic and Darija — no source data, so nothing can leak |
+| [`glpi-ticket-triage`](https://github.com/novagiosAI/ticket-triage) | Category and priority classifier; CPU only, 0.5 MB model |
+| [`arabizi`](https://github.com/novagiosAI/arabizi) | Moroccan Arabizi transliteration and word-level language detection |
+
+All six at once:
+
+```bash
+pip install glpi-rest glpi-anonymizer presidio-mena glpi-testkit glpi-ticket-triage arabizi
+```
+
 ## Contributing
 
 New MENA recognizers are the most useful contribution — see
